@@ -1,0 +1,76 @@
+body  {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  
+#appcartao {
+    margin: 80px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#frentecartao {
+    width: 400px;
+    height: 230px;
+    background: linear-gradient(120deg, rgba(0, 68, 85, 1), rgba(0, 95, 117, 1));
+    border-radius: 5px;
+    margin: 0 200px 0 0;
+}
+
+#frentecartao img {
+    width: 50px;
+    height: 50px;
+    margin: 15% 0 0 9%;
+}
+
+#trascartao {
+    width: 400px;
+    height: 230px;
+    background: linear-gradient(120deg, rgba(0, 68, 85, 1), rgba(0, 95, 117, 1));
+    border-radius: 5px;
+    margin: 50px 0px 0 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#leitor {
+    display: flex;
+    margin: 40px 0 0 0;
+    width: 100%;
+    height: 40px;
+    background-color: #000;
+}
+
+#numerocartao {
+    display: flex;
+    margin: 1% 0 0 11%;
+    font-size: 20px;
+    color: white;
+}
+
+#validadecartao {
+    display: flex;
+    margin: 3% 0 0 11%;
+    font-size: 15px;
+    color: white;
+}
+
+#cvv {
+    position: absolute;
+    margin: 20% 0 0 80%;
+    width: 50px;
+    height: 50px;
+}
+
+#campocvv {
+    display: flex;
+    margin: 100px 0 0 0;
+    width: 100%;
+    height: 40px;
+    background-color: #000;
+}

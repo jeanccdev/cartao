@@ -3,26 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            box-sizing: border-box;
-            font-family: Raleway;
-        }
+body {
+    margin: 15px 0 0 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eee;
+}
+
+#appcartao {
+    margin: 30px 0 0 0;
+}
+
+#frentecartao {
+    background: linear-gradient(120deg, rgba(0, 68, 85, 1), rgba(0, 95, 117, 1));
+    height: 230px;
+    width: 330px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 2;
+}
+
+#frentecartao img {
+    width: 50px;
+    position: relative;
+    top: 50px;
+    left: 30px;
+}
+
+#trascartao {
+    background: linear-gradient(120deg, rgba(0, 68, 85, 1), rgba(0, 95, 117, 1));
+    height: 230px;
+    width: 330px;
+    margin: 30px 0 0 170px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+#numerocartao {
+    position: absolute;
+    left: 60px;
+    top: 120px;
+    color: #fff;
+    font-size: 22px;
+}
+
+#validadecartao {
+    position: absolute;
+    left: 60px;
+    top: 160px;
+    color: #fff;
+    font-size: 17px;
+}
+
+#cvv {
+    position: absolute;
+    right: 60px;
+    top: 160px;
+    color: #fff;
+    font-size: 20px;
+}
+
+#leitor {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 30px;
+    background-color: #000;
+}
+
+#campocvv {
+    position: absolute;
+    right: 30px;
+    top: 145px;
+    width: 80px;
+    height: 50px;
+    background-color: #aaa;
+}
+
+#inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2% 0 0 0;
+}
+
+input {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    margin: 2% 0;
+    width: 250px;
+    height: 30px;
+    padding: 2px 15px; 
+}
+
+input[type=submit] {
+    background-color: rgba(0, 68, 85, 1);
+    color: #fff;
+    padding: 15px;
+    font-size: 22px;
+    height: auto;
+    cursor: pointer;
+}
+
+h1 {
+    color: rgb(0, 41, 51);
+}
     </style>
+    <title>Cartão</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="">PROJETOS</a>
-            <a href="sobre.html">SOBRE</a>
-            <a href="contatos.html">CONTATO</a>
-        </nav>
-    </header>
+    <h1>Preenchimento de cartão</h1>
+    <section id="appcartao">
+        <div id="frentecartao">
+            <img src="https://cdn-icons-png.flaticon.com/512/680/680284.png">
+            <span id="numerocartao">{{numerocartao}}</span>
+            <span id="validadecartao">{{validadecartao}}</span>
+        </div>
+        <div id="trascartao">
+            <div id="leitor"></div>
+            <div id="campocvv"></div>
+            <span id="cvv" v-html="cvv"></span>
+        </div>
+        <div id="inputs">
+            <input type="text" v-model="numerocartao" minlength="16" maxlength="16" placeholder="Número do Cartão" oninput="this.value = this.value.replace(/\D/gi, '')">
+            <input type="text" v-model="validadecartao" placeholder="MM/YY" maxlength="5" minlength="5" oninput="this.value = this.value.replace(/(\d{2})(\d)/g, '$1/$2');">
+            <input type="text" v-model="cvv" minlength="3" maxlength="3" placeholder="CVV" oninput="this.value = this.value.replace(/\D/gi, '')">
+            <input type="submit" value="Cadastrar Cartão" @click="cadastrado">
+        </div>
+    </section>
+    <script src="vue.js"></script>
 </body>
 </html>
